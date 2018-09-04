@@ -32,4 +32,3 @@ be found at [https://hexdocs.pm/j1](https://hexdocs.pm/j1).
  https://habr.com/post/133338/
  
  https://habr.com/post/133380/
-
