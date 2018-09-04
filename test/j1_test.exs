@@ -53,7 +53,7 @@ defmodule J1Test do
   # drop       N                -1   0
   # ;          T        v        0  -1
   # >r         N             v  -1  +1
-  # r>         R    v        v  +1  -1
+  # r>         R    v           +1  -1    !!! tr no need!!! may be error in pdf. see http://excamera.com/files/j1demo/docforth/basewords.fs.html
   # r@         R    v           +1   0    !!! tr no need!!! may be error in pdf. see http://excamera.com/files/j1demo/docforth/basewords.fs.html
   # @         [T]                0   0
   # !          N                -1   0
@@ -190,7 +190,7 @@ defmodule J1Test do
     tor_cmd = op( 1, false, false,  true, -1, +1, false)
 
     #              op,    tn,   rpc,    tr, ds, rs,   nti
-    fromr_cmd = op(11, false, false, false, +1, -1, false)
+    fromr_cmd = op(11, true, false, false, +1, -1, false)
 
     j1 = J1CPU.new
     |> J1.lit(1)

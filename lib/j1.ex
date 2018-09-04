@@ -75,7 +75,7 @@ defmodule J1 do
       11 -> r_r
       12 -> mem[s_t]
       13 -> bsl(s_n, s_t)
-      14 -> uint16(sp + 1)
+      14 -> uint16(sp) # s stack depth (глубина стека данных)
       15 -> if (uint16(s_n) < s_t), do: 1, else: 0
     end
 
