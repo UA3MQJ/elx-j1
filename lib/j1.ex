@@ -65,6 +65,21 @@ defmodule J1 do
   use Bitwise
   require Logger
 
+  # run
+  def run(j1) do
+    result = try do
+      new_j1 = J1.exec(j1, j1.mem[j1.pc])
+      # run(new_j1)
+    rescue
+      _ -> :halt
+    end
+
+    case result do
+      :halt -> j1
+      _else -> run(result)
+    end
+  end
+
   # exec command (mem[pc])
   def exec(j1),
     do: J1.exec(j1, j1.mem[j1.pc])
@@ -124,7 +139,7 @@ defmodule J1 do
        9 -> bsr(s_n, s_t)
       10 -> s_t - 1
       11 -> r_r
-      12 -> mem[s_t]
+      12 -> hardware_read_mem(mem, s_t) # mem[s_t]
       13 -> bsl(s_n, s_t)
       14 -> uint16(sp) # s stack depth (глубина стека данных)
       15 -> if (uint16(s_n) < s_t), do: 1, else: 0
@@ -183,7 +198,7 @@ defmodule J1 do
     end
 
     new_mem = case nt==1 do
-      true -> Map.merge(mem, %{s_t => s_n})
+      true -> hardware_write_mem(mem, s_t, s_n)
       false -> mem
     end
 
@@ -212,6 +227,32 @@ defmodule J1 do
   def call(j1, address),
     do: exec(j1, J1CMD.call(address))
 
+  # hardware memory mapping emulation
+
+  # by default - write to internal memory
+  def hardware_write_mem(mem, 10000, value) do
+    IO.write "#{[value]}"
+    mem
+  end
+
+  def hardware_write_mem(mem, 10001, value) do
+    Logger.info "J1 halt"
+    raise "halt"
+    mem
+  end
+
+  def hardware_write_mem(mem, address, value),
+    do: Map.merge(mem, %{address => value})
+
+  # mem[s_t]
+  def hardware_read_mem(mem, address) do
+    case mem[address] do
+      nil -> << 0 :: integer-unsigned-16 >>
+      data -> data
+    end
+  end
+
+  # utils
   def uint16(x) do
     << result :: size(16) >> = << x :: integer-unsigned-16 >>
     result
