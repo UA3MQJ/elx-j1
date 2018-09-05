@@ -1,0 +1,272 @@
+<html>
+<head>
+<style type=text/css>
+div.code {
+  padding:0.5em;
+  font-size:large;
+  line-height:110%;
+}
+div.code a.name {
+  font-weight:bold;
+}
+div.code a.name:target {
+  background-color:#ff7
+}
+div.code a.ref {
+  text-decoration:none;
+  color:#007
+}
+div.code a.ref:hover {
+  text-decoration:underline;
+}
+.footer {
+  font-size:x-small;
+  line-height:110%;
+}
+</style>
+</head>
+<body>
+<div class=code>
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;Base&nbsp;words&nbsp;implemented&nbsp;in&nbsp;assembler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JCB&nbsp;13:10&nbsp;08/24/10)</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#484>meta</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=637>noop</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=638>+</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#512>T+N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#515>T^N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=640>and</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#513>T&amp;N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=641>or</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#514>T|N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=642>invert</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#516>~T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=643>=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#517>N==T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=644>&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#518>N&lt;T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=645>u&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#525>Nu&lt;T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=646>swap</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=647>dup</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=648>drop</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=649>over</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=650>nip</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=651>>r</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#527>T->R</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#533>r+1</a>&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=652>r></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#521>rT</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#531>r-1</a>&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=653>r@</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#521>rT</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=654>@</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#522>[T]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=655>!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#528>N->[T]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=656>dsp</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#524>dsp</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=657>lshift</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#523>N&lt;&lt;T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=658>rshift</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#519>N>>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=659>1-</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#520>T-1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=660>2r></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#521>rT</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#531>r-1</a>&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#521>rT</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#531>r-1</a>&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=661>2>r</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#527>T->R</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#533>r+1</a>&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#527>T->R</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#533>r+1</a>&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=662>2r@</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#521>rT</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#531>r-1</a>&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#521>rT</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#531>r-1</a>&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#527>T->R</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#533>r+1</a>&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#527>T->R</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#533>r+1</a>&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=663>unloop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#531>r-1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#531>r-1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=664>exit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#535>return</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans7.htm#7.6.2.2535>\</a>&nbsp;Elided&nbsp;words</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=665>dup@</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#522>[T]</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=666>dup>r</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#527>T->R</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#533>r+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=667>2dupxor</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#515>T^N</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=668>2dup=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#517>N==T</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=669>!nip</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#528>N->[T]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=670>2dup!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#528>N->[T]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans7.htm#7.6.2.2535>\</a>&nbsp;Words&nbsp;used&nbsp;to&nbsp;implement&nbsp;pick</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#530>d+1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=672>down1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=673>copy</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=674>module[</a>&nbsp;<a class=ref href=crossj1.fs.html#492>there</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2520>[char]</a>&nbsp;"&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.2.2008>parse</a>&nbsp;<a class=ref href=crossj1.fs.html#506>preserve</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=675>]module</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.2165>s"</a>&nbsp;Compiled&nbsp;"&nbsp;<a class=ref href=crossj1.fs.html#475>type</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0980>count</a>&nbsp;<a class=ref href=crossj1.fs.html#475>type</a>&nbsp;<a class=ref href=crossj1.fs.html#478>space</a>&nbsp;<a class=ref href=crossj1.fs.html#492>there</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2260>swap</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0160>-</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0180>.</a>&nbsp;<a class=ref href=crossj1.fs.html#477>cr</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+</div>
+<p class=footer>Created with <a href=http://excamera.com/sphinx/docforth.html>docforth</a>
+</body></html>

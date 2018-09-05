@@ -1,0 +1,245 @@
+<html>
+<head>
+<style type=text/css>
+div.code {
+  padding:0.5em;
+  font-size:large;
+  line-height:110%;
+}
+div.code a.name {
+  font-weight:bold;
+}
+div.code a.name:target {
+  background-color:#ff7
+}
+div.code a.ref {
+  text-decoration:none;
+  color:#007
+}
+div.code a.ref:hover {
+  text-decoration:underline;
+}
+.footer {
+  font-size:x-small;
+  line-height:110%;
+}
+</style>
+</head>
+<body>
+<div class=code>
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;Main&nbsp;for&nbsp;WGE&nbsp;firmware&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JCB&nbsp;13:24&nbsp;08/24/10)</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans7.htm#7.6.2.2535>\</a>&nbsp;warnings&nbsp;off</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans7.htm#7.6.2.2535>\</a>&nbsp;require&nbsp;tags.fs</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=ans.fs.html#460>include</a>&nbsp;<a class=ref href=crossj1.fs.html>crossj1.fs</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#484>meta</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=635>TARGET?</a>&nbsp;1&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=636>build-debug?</a>&nbsp;1&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=ans.fs.html#460>include</a>&nbsp;<a class=ref href=basewords.fs.html>basewords.fs</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#485>target</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#583>include</a>&nbsp;<a class=ref href=hwdefs.fs.html>hwdefs.fs</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+0&nbsp;<a class=ref href=crossj1.fs.html#584>[IF]</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;h#&nbsp;1f80&nbsp;org</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;the&nbsp;RAM&nbsp;Bootloader&nbsp;copies&nbsp;2000-3f80&nbsp;to&nbsp;0-1f80,&nbsp;then&nbsp;branches&nbsp;to&nbsp;zero</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;bootloader</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h#&nbsp;1f80&nbsp;h#&nbsp;0</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2dupxor</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dup&nbsp;h#&nbsp;2000&nbsp;+&nbsp;@</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;over&nbsp;!</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d#&nbsp;2&nbsp;+</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repeat</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin&nbsp;dsp&nbsp;h#&nbsp;ff&nbsp;and&nbsp;while&nbsp;drop&nbsp;repeat</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d#&nbsp;0&nbsp;>r</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;;</code>
+<br>
+
+<code>
+[ELSE]</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;3f80&nbsp;<a class=ref href=crossj1.fs.html#582>org</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;the&nbsp;Flash&nbsp;Bootloader&nbsp;copies&nbsp;0x190000&nbsp;to&nbsp;0-3f80,&nbsp;then&nbsp;branches&nbsp;to&nbsp;zero</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=723>bootloader</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;c&nbsp;<a class=ref href=hwdefs.fs.html#684>flash_a_hi</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;0&nbsp;<a class=ref href=crossj1.fs.html#617>begin</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;8000&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=hwdefs.fs.html#683>flash_a</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=hwdefs.fs.html#678>flash_oe_n</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=hwdefs.fs.html#685>flash_d</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=hwdefs.fs.html#678>flash_oe_n</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#638>+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;1fc0&nbsp;<a class=ref href=basewords.fs.html#643>=</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#619>until</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#617>begin</a>&nbsp;<a class=ref href=basewords.fs.html#656>dsp</a>&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;ff&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=crossj1.fs.html#620>while</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#621>repeat</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=basewords.fs.html#651>>r</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#586>[THEN]</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+4&nbsp;<a class=ref href=crossj1.fs.html#582>org</a></code>
+<br>
+
+<code>
+<a class=ref href=basewords.fs.html#674>module[</a>&nbsp;everything"</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#583>include</a>&nbsp;<a class=ref href=nuc.fs.html>nuc.fs</a></code>
+<br>
+
+<code>
+</code>
+<br>
+

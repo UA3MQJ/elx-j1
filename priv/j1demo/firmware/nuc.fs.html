@@ -1,0 +1,2216 @@
+<html>
+<head>
+<style type=text/css>
+div.code {
+  padding:0.5em;
+  font-size:large;
+  line-height:110%;
+}
+div.code a.name {
+  font-weight:bold;
+}
+div.code a.name:target {
+  background-color:#ff7
+}
+div.code a.ref {
+  text-decoration:none;
+  color:#007
+}
+div.code a.ref:hover {
+  text-decoration:underline;
+}
+.footer {
+  font-size:x-small;
+  line-height:110%;
+}
+</style>
+</head>
+<body>
+<div class=code>
+<code>
+<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;Nucleus:&nbsp;ANS&nbsp;Forth&nbsp;core&nbsp;and&nbsp;ext&nbsp;words&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JCB&nbsp;13:11&nbsp;08/24/10)</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=basewords.fs.html#674>module[</a>&nbsp;nuc"</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+32&nbsp;<a class=ref href=crossj1.fs.html#573>constant</a>&nbsp;<a class=name name=724>sp</a></code>
+<br>
+
+<code>
+0&nbsp;<a class=ref href=crossj1.fs.html#573>constant</a>&nbsp;<a class=name name=725>false</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.2.1485&nbsp;)</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=726>depth</a>&nbsp;<a class=ref href=basewords.fs.html#656>dsp</a>&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;ff&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=727>true</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.2.2298&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;-1&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=728>1+</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=729>rot</a>&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=730>-rot</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=731>0=</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=basewords.fs.html#643>=</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=732>tuck</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=733>2drop</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=734>?dup</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=735>split</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;m&nbsp;--&nbsp;a&amp;m&nbsp;a&amp;~m&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&nbsp;m&nbsp;a</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&nbsp;a&amp;m</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#732>tuck</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&amp;m&nbsp;a&nbsp;a&amp;m</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&amp;m&nbsp;a&amp;~m</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=736>merge</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;b&nbsp;m&nbsp;--&nbsp;m?b:a&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&nbsp;b</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&nbsp;a^b</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&nbsp;(a^b)&amp;m</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;((a^b)&amp;m)^a</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=737>c@</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;8&nbsp;<a class=ref href=basewords.fs.html#658>rshift</a>&nbsp;<a class=ref href=crossj1.fs.html#616>else</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;255&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=738>c!</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;u&nbsp;c-addr&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;ff&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;8&nbsp;<a class=ref href=basewords.fs.html#657>lshift</a>&nbsp;<a class=ref href=basewords.fs.html#641>or</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#732>tuck</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;c-addr&nbsp;u&nbsp;v&nbsp;c-addr&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=basewords.fs.html#643>=</a>&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;ff&nbsp;<a class=ref href=basewords.fs.html#639>xor</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#736>merge</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=739>c!be</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;<a class=ref href=nuc.fs.html#738>c!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=740>looptest</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;--&nbsp;FIN&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;xt&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;xt&nbsp;i&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#728>1+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#653>r@</a>&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#643>=</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;xt&nbsp;i&nbsp;FIN&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#650>nip</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#616>else</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;xt&nbsp;FIN&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>r</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;Stack</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=741>2dup</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=742>+!</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#732>tuck</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;Comparisons</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=743>&lt;></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#643>=</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=744>0&lt;></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#731>0=</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=745>0&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=746>0>=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=747>0></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=748>></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=749>>=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=750>&lt;=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#748>></a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=751>u></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#645>u&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;Arithmetic</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=752>negate</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=753>-</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#752>negate</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=754>abs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=nuc.fs.html#752>negate</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=755>min</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=756>?:</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;xt&nbsp;xf&nbsp;f&nbsp;--&nbsp;xt&nbsp;|&nbsp;xf)&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#616>else</a>&nbsp;<a class=ref href=basewords.fs.html#650>nip</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=757>max</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=nuc.fs.html#748>></a>&nbsp;<a class=ref href=nuc.fs.html#756>?:</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#576>code</a>&nbsp;<a class=name name=758>cells</a>&nbsp;<a class=ref href=crossj1.fs.html#577>end-code</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#576>code</a>&nbsp;<a class=name name=759>addrcells</a>&nbsp;<a class=ref href=crossj1.fs.html#577>end-code</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=760>2*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#657>lshift</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#576>code</a>&nbsp;<a class=name name=761>cell+</a>&nbsp;<a class=ref href=crossj1.fs.html#577>end-code</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#576>code</a>&nbsp;<a class=name name=762>addrcell+</a>&nbsp;<a class=ref href=crossj1.fs.html#577>end-code</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=763>2+</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;2&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=764>2-</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#659>1-</a>&nbsp;<a class=ref href=basewords.fs.html#659>1-</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=765>2/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#658>rshift</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=766>c+!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#732>tuck</a>&nbsp;<a class=ref href=nuc.fs.html#737>c@</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#738>c!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=767>count</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#737>c@</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=768>/string</a>&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=769>aligned</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=crossj1.fs.html#612>h#</a>&nbsp;fffe&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=770>sliteral</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#767>count</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#638>+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#769>aligned</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=771>execute</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=772>15down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=773>14down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=774>13down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=775>12down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=776>11down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=777>10down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=778>9down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=779>8down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=780>7down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=781>6down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=782>5down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=783>4down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=784>3down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=785>2down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=786>1down</a>&nbsp;<a class=ref href=basewords.fs.html#672>down1</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=787>0down</a>&nbsp;<a class=ref href=basewords.fs.html#673>copy</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=788>15up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=789>14up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=790>13up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=791>12up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=792>11up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=793>10up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=794>9up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=795>8up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=796>7up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=797>6up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=798>5up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=799>4up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=800>3up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=801>2up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=802>1up</a>&nbsp;<a class=ref href=basewords.fs.html#671>up1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=803>0up</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#576>code</a>&nbsp;<a class=name name=804>pickbody</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#673>copy</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#535>return</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#786>1down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#802>1up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#785>2down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#801>2up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#784>3down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#800>3up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#783>4down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#799>4up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#782>5down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#798>5up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#781>6down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#797>6up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#780>7down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#796>7up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#779>8down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#795>8up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#778>9down</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#794>9up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#777>10down</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#793>10up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#776>11down</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#792>11up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#775>12down</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#791>12up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#774>13down</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#790>13up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#773>14down</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#789>14up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#772>15down</a>&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#538>scall</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#788>15up</a>&nbsp;<a class=ref href=crossj1.fs.html#536>ubranch</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#577>end-code</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=805>pick</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#760>2*</a>&nbsp;<a class=ref href=nuc.fs.html#760>2*</a>&nbsp;<a class=ref href=crossj1.fs.html#589>[']</a>&nbsp;pickbody&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=nuc.fs.html#771>execute</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=806>swapdown</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#574>]asm</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#511>N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#526>T->N</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#510>T</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#529>d-1</a>&nbsp;<a class=ref href=crossj1.fs.html#534>alu</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#575>asm[</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=807>swapdowns</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=nuc.fs.html#806>swapdown</a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=808>swapdown0</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=809>roll</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#760>2*</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#589>[']</a>&nbsp;0up&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#589>[']</a>&nbsp;swapdown0&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=nuc.fs.html#771>execute</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;========================================================================</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;Double</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;========================================================================</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=810>d=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;b&nbsp;c&nbsp;d&nbsp;--&nbsp;f&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&nbsp;b&nbsp;c</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;b&nbsp;a^c</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a^c&nbsp;b^d</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#641>or</a>&nbsp;<a class=ref href=nuc.fs.html#731>0=</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=811>2@</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;ptr&nbsp;--&nbsp;lo&nbsp;hi&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#763>2+</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=812>2!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;lo&nbsp;hi&nbsp;ptr&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;hi&nbsp;ptr&nbsp;lo&nbsp;ptr</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=nuc.fs.html#763>2+</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=813>2over</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=814>2swap</a>&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=815>2nip</a>&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=816>2rot</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d1&nbsp;d2&nbsp;d3&nbsp;--&nbsp;d2&nbsp;d3&nbsp;d1&nbsp;)&nbsp;<a class=ref href=basewords.fs.html#661>2>r</a>&nbsp;<a class=ref href=nuc.fs.html#814>2swap</a>&nbsp;<a class=ref href=basewords.fs.html#660>2r></a>&nbsp;<a class=ref href=nuc.fs.html#814>2swap</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=817>2pick</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#760>2*</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;&nbsp;lo&nbsp;hi&nbsp;...&nbsp;2k+1&nbsp;2k+2</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#805>pick</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;&nbsp;lo&nbsp;hi&nbsp;...&nbsp;2k+1&nbsp;lo</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;&nbsp;lo&nbsp;hi&nbsp;...&nbsp;lo&nbsp;2k+1</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#805>pick</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;&nbsp;lo&nbsp;hi&nbsp;...&nbsp;lo&nbsp;hi</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=818>d+</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;augend&nbsp;.&nbsp;addend&nbsp;.&nbsp;--&nbsp;sum&nbsp;.&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;augend&nbsp;addend)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;augend&nbsp;sum)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;sum&nbsp;sum&nbsp;augend)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#645>u&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;sum)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#616>else</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;sum&nbsp;.&nbsp;)</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=819>+h</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;u1&nbsp;u2&nbsp;--&nbsp;u1+u2/2**16&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;a+b&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#751>u></a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#640>and</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=820>+1c</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;one's&nbsp;complement&nbsp;add,&nbsp;as&nbsp;in&nbsp;TCP&nbsp;checksum</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=nuc.fs.html#819>+h</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=821>s>d</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=822>d1+</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1.&nbsp;<a class=ref href=nuc.fs.html#818>d+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=823>dnegate</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#822>d1+</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=824>DABS</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d&nbsp;--&nbsp;ud&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;8.6.1.1160&nbsp;)&nbsp;<a class=ref href=basewords.fs.html#647>DUP</a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>IF</a>&nbsp;<a class=ref href=nuc.fs.html#823>DNEGATE</a>&nbsp;<a class=ref href=crossj1.fs.html#615>THEN</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=825>d-</a>&nbsp;<a class=ref href=nuc.fs.html#823>dnegate</a>&nbsp;<a class=ref href=nuc.fs.html#818>d+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;Write&nbsp;zero&nbsp;to&nbsp;double</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=826>dz</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=nuc.fs.html#812>2!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=827>dxor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;(&nbsp;a&nbsp;b&nbsp;c&nbsp;d&nbsp;--&nbsp;e&nbsp;f&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;a&nbsp;c&nbsp;b^d</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#730>-rot</a>&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;b^d&nbsp;a^c</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=828>dand</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=nuc.fs.html#730>-rot</a>&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=829>dor</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#641>or</a>&nbsp;&nbsp;<a class=ref href=nuc.fs.html#730>-rot</a>&nbsp;<a class=ref href=basewords.fs.html#641>or</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=830>dinvert</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=831>d&lt;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;(&nbsp;al&nbsp;ah&nbsp;bl&nbsp;bh&nbsp;--&nbsp;flag&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;al&nbsp;bl&nbsp;bh&nbsp;ah</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=basewords.fs.html#643>=</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#613>if</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#733>2drop</a>&nbsp;<a class=ref href=basewords.fs.html#645>u&lt;</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#616>else</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#815>2nip</a>&nbsp;<a class=ref href=nuc.fs.html#748>></a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=832>d></a>&nbsp;<a class=ref href=nuc.fs.html#814>2swap</a>&nbsp;<a class=ref href=nuc.fs.html#831>d&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=833>d0&lt;=</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0.&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=834>d&lt;=</a>&nbsp;<a class=ref href=nuc.fs.html#832>d></a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=835>d>=</a>&nbsp;<a class=ref href=nuc.fs.html#831>d&lt;</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=836>d0=</a>&nbsp;<a class=ref href=basewords.fs.html#641>or</a>&nbsp;<a class=ref href=nuc.fs.html#731>0=</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=837>d0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0.&nbsp;<a class=ref href=nuc.fs.html#831>d&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=838>d0&lt;></a>&nbsp;<a class=ref href=nuc.fs.html#836>d0=</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=839>d&lt;></a>&nbsp;<a class=ref href=nuc.fs.html#810>d=</a>&nbsp;<a class=ref href=basewords.fs.html#642>invert</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=840>d2*</a>&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=nuc.fs.html#818>d+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=841>d2/</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;15&nbsp;<a class=ref href=basewords.fs.html#657>lshift</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#765>2/</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#765>2/</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=basewords.fs.html#641>or</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=842>dmax</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#813>2over</a>&nbsp;<a class=ref href=nuc.fs.html#813>2over</a>&nbsp;<a class=ref href=nuc.fs.html#831>d&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=nuc.fs.html#814>2swap</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;<a class=ref href=nuc.fs.html#733>2drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=843>d1-</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;-1.&nbsp;<a class=ref href=nuc.fs.html#818>d+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=844>d+!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;v.&nbsp;addr&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#811>2@</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#818>d+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#812>2!</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=845>move</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;addr1&nbsp;addr2&nbsp;u&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=crossj1.fs.html#623>do</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#763>2+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#763>2+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#624>loop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#733>2drop</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=846>cmove</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;c-addr1&nbsp;c-addr2&nbsp;u&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=crossj1.fs.html#623>do</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=nuc.fs.html#737>c@</a>&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=nuc.fs.html#738>c!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#624>loop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#733>2drop</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=847>bounds</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;n&nbsp;--&nbsp;a+n&nbsp;a&nbsp;)&nbsp;<a class=ref href=basewords.fs.html#649>OVER</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=basewords.fs.html#646>SWAP</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=848>fill</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;c-addr&nbsp;u&nbsp;char&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.1540&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;&nbsp;<a class=ref href=nuc.fs.html#847>bounds</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#617>BEGIN</a>&nbsp;<a class=ref href=basewords.fs.html#667>2dupxor</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#620>WHILE</a>&nbsp;<a class=ref href=basewords.fs.html#653>R@</a>&nbsp;<a class=ref href=basewords.fs.html#649>OVER</a>&nbsp;<a class=ref href=nuc.fs.html#738>C!</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#621>REPEAT</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=basewords.fs.html#648>DROP</a>&nbsp;<a class=ref href=nuc.fs.html#733>2DROP</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;Math</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+0&nbsp;<a class=ref href=crossj1.fs.html#584>[IF]</a></code>
+<br>
+
+<code>
+create&nbsp;scratch&nbsp;d#&nbsp;2&nbsp;allot</code>
+<br>
+
+<code>
+:&nbsp;um*&nbsp;&nbsp;(&nbsp;u1&nbsp;u2&nbsp;--&nbsp;ud&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;scratch&nbsp;!</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;d#&nbsp;0.</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;d#&nbsp;16&nbsp;0do</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2dup&nbsp;d+</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rot&nbsp;dup&nbsp;0&lt;&nbsp;if</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2*&nbsp;-rot</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scratch&nbsp;@&nbsp;d#&nbsp;0&nbsp;d+</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2*&nbsp;-rot</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;loop</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;rot&nbsp;drop</code>
+<br>
+
+<code>
+;</code>
+<br>
+
+<code>
+[ELSE]</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=849>um*</a>&nbsp;&nbsp;&nbsp;<a class=ref href=hwdefs.fs.html#717>mult_a</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=hwdefs.fs.html#718>mult_b</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=hwdefs.fs.html#719>mult_p</a>&nbsp;<a class=ref href=nuc.fs.html#811>2@</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#586>[THEN]</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=850>*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#849>um*</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=851>abssgn</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;b&nbsp;--&nbsp;|a|&nbsp;|b|&nbsp;negf&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=basewords.fs.html#639>xor</a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#754>abs</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#754>abs</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=852>m*</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#851>abssgn</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#849>um*</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=nuc.fs.html#823>dnegate</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=853>divstep</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;divisor&nbsp;dq&nbsp;hi&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#760>2*</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#760>2*</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;dq&nbsp;hi&nbsp;divisor&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=nuc.fs.html#749>>=</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#732>tuck</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;dq&nbsp;divisor&nbsp;hi&nbsp;divisor&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#753>-</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;dq&nbsp;hi&nbsp;divisor&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;hi&nbsp;divisor&nbsp;dq&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;divisor&nbsp;dq&nbsp;hi&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#616>else</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#730>-rot</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=854>um/mod</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;ud&nbsp;u1&nbsp;--&nbsp;u2&nbsp;u3&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.2370&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#730>-rot</a>&nbsp;</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a>&nbsp;<a class=ref href=nuc.fs.html#853>divstep</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=855>/mod</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=nuc.fs.html#821>S>D</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=856>SM/REM</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d&nbsp;n&nbsp;--&nbsp;r&nbsp;q&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.2214&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;symmetric&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>OVER</a>&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;&nbsp;<a class=ref href=nuc.fs.html#824>DABS</a>&nbsp;<a class=ref href=basewords.fs.html#653>R@</a>&nbsp;<a class=ref href=nuc.fs.html#754>ABS</a>&nbsp;<a class=ref href=nuc.fs.html#854>UM/MOD</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=basewords.fs.html#653>R@</a>&nbsp;<a class=ref href=basewords.fs.html#639>XOR</a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>IF</a>&nbsp;<a class=ref href=nuc.fs.html#752>NEGATE</a>&nbsp;<a class=ref href=crossj1.fs.html#615>THEN</a>&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>IF</a>&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=nuc.fs.html#752>NEGATE</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=crossj1.fs.html#615>THEN</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=857>/</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#855>/mod</a>&nbsp;<a class=ref href=basewords.fs.html#650>nip</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=858>mod</a>&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#855>/mod</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=859>*/mod</a>&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=nuc.fs.html#852>M*</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=nuc.fs.html#856>SM/REM</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=860>*/</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#859>*/mod</a>&nbsp;<a class=ref href=basewords.fs.html#650>nip</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=861>t2*</a>&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#840>d2*</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=nuc.fs.html#760>2*</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#596>variable</a>&nbsp;<a class=name name=862>divisor</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=863>m*/mod</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#862>divisor</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#732>tuck</a>&nbsp;<a class=ref href=nuc.fs.html#849>um*</a>&nbsp;<a class=ref href=nuc.fs.html#814>2swap</a>&nbsp;<a class=ref href=nuc.fs.html#849>um*</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;hi.&nbsp;lo.&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;m0&nbsp;h&nbsp;l&nbsp;m1&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=nuc.fs.html#818>d+</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;m&nbsp;h&nbsp;l&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#730>-rot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;l&nbsp;m&nbsp;h&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;32&nbsp;<a class=ref href=crossj1.fs.html#622>0do</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#861>t2*</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#862>divisor</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#749>>=</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#862>divisor</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#753>-</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#729>rot</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a>&nbsp;<a class=ref href=nuc.fs.html#730>-rot</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#624>loop</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=864>m*/</a>&nbsp;<a class=ref href=nuc.fs.html#863>m*/mod</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;Numeric&nbsp;output&nbsp;-&nbsp;from&nbsp;eforth</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#596>variable</a>&nbsp;<a class=name name=865>base</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#596>variable</a>&nbsp;<a class=name name=866>hld</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#594>create</a>&nbsp;<a class=name name=867>pad</a>&nbsp;84&nbsp;<a class=ref href=crossj1.fs.html#595>allot</a>&nbsp;<a class=ref href=crossj1.fs.html#594>create</a>&nbsp;<a class=name name=868>pad|</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=869>&lt;#</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.0490&nbsp;)<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;h#&nbsp;96&nbsp;)&nbsp;<a class=ref href=nuc.fs.html#868>pad|</a>&nbsp;<a class=ref href=nuc.fs.html#866>HLD</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=870>DIGIT</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;u&nbsp;--&nbsp;c&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;9&nbsp;<a class=ref href=basewords.fs.html#649>OVER</a>&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;7&nbsp;<a class=ref href=basewords.fs.html#640>AND</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=crossj1.fs.html#588>[CHAR]</a>&nbsp;0&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=871>HOLD</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;c&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.1670&nbsp;)&nbsp;<a class=ref href=nuc.fs.html#866>HLD</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=basewords.fs.html#659>1-</a>&nbsp;<a class=ref href=basewords.fs.html#647>DUP</a>&nbsp;<a class=ref href=nuc.fs.html#866>HLD</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=nuc.fs.html#738>C!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=872>#</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d&nbsp;--&nbsp;d&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.0030&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=nuc.fs.html#865>BASE</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#854>UM/MOD</a>&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=nuc.fs.html#865>BASE</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#854>UM/MOD</a>&nbsp;<a class=ref href=basewords.fs.html#646>SWAP</a>&nbsp;<a class=ref href=nuc.fs.html#870>DIGIT</a>&nbsp;<a class=ref href=nuc.fs.html#871>HOLD</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=873>#S</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d&nbsp;--&nbsp;d&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.0050&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#617>BEGIN</a>&nbsp;<a class=ref href=nuc.fs.html#872>#</a>&nbsp;<a class=ref href=nuc.fs.html#741>2DUP</a>&nbsp;<a class=ref href=basewords.fs.html#641>OR</a>&nbsp;<a class=ref href=nuc.fs.html#731>0=</a>&nbsp;<a class=ref href=crossj1.fs.html#619>UNTIL</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=874>#></a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d&nbsp;--&nbsp;a&nbsp;u&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.0040&nbsp;)&nbsp;<a class=ref href=nuc.fs.html#733>2DROP</a>&nbsp;<a class=ref href=nuc.fs.html#866>HLD</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#868>pad|</a>&nbsp;<a class=ref href=basewords.fs.html#649>OVER</a>&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=875>SIGN</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;n&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.2210&nbsp;)&nbsp;<a class=ref href=nuc.fs.html#745>0&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>IF</a>&nbsp;<a class=ref href=crossj1.fs.html#588>[CHAR]</a>&nbsp;-&nbsp;<a class=ref href=nuc.fs.html#871>HOLD</a>&nbsp;<a class=ref href=crossj1.fs.html#615>THEN</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;hex(int((1&lt;&lt;24)&nbsp;*&nbsp;(115200&nbsp;/&nbsp;2400.)&nbsp;/&nbsp;(WB_CLOCK_FREQ&nbsp;/&nbsp;2400.)))</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;d#&nbsp;42000000&nbsp;constant&nbsp;WB_CLOCK_FREQ</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#567>[</a>&nbsp;48000000&nbsp;17&nbsp;12&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0100>*/</a>&nbsp;<a class=ref href=crossj1.fs.html#566>]</a>&nbsp;<a class=ref href=crossj1.fs.html#573>constant</a>&nbsp;<a class=name name=876>WB_CLOCK_FREQ</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+0&nbsp;<a class=ref href=crossj1.fs.html#584>[IF]</a></code>
+<br>
+
+<code>
+:&nbsp;uartbase</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;$100000000.&nbsp;115200&nbsp;WB_CLOCK_FREQ&nbsp;m*/&nbsp;drop&nbsp;$ffffff00&nbsp;and&nbsp;dup&nbsp;swap&nbsp;16&nbsp;rshift&nbsp;]&nbsp;2literal</code>
+<br>
+
+<code>
+;</code>
+<br>
+
+<code>
+:&nbsp;emit-uart</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;begin&nbsp;uart_0&nbsp;@&nbsp;0=&nbsp;until</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;s>d</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;uartbase&nbsp;dor</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;uart_1&nbsp;!&nbsp;uart_0&nbsp;!</code>
+<br>
+
+<code>
+;</code>
+<br>
+
+<code>
+[ELSE]</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=877>emit-uart</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#586>[THEN]</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#594>create</a>&nbsp;<a class=name name=878>'emit</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#581>meta</a>&nbsp;<a class=ref href=nuc.fs.html#877>emit-uart</a>&nbsp;<a class=ref href=crossj1.fs.html#500>t,</a>&nbsp;<a class=ref href=crossj1.fs.html#485>target</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=879>emit</a>&nbsp;<a class=ref href=nuc.fs.html#878>'emit</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#771>execute</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=880>cr</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;13&nbsp;<a class=ref href=nuc.fs.html#879>emit</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;10&nbsp;<a class=ref href=nuc.fs.html#879>emit</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;32&nbsp;<a class=ref href=crossj1.fs.html#573>constant</a>&nbsp;<a class=name name=881>bl</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=882>space</a>&nbsp;<a class=ref href=nuc.fs.html#881>bl</a>&nbsp;<a class=ref href=nuc.fs.html#879>emit</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=883>spaces</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#617>begin</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#747>0></a>&nbsp;<a class=ref href=crossj1.fs.html#620>while</a>&nbsp;<a class=ref href=nuc.fs.html#882>space</a>&nbsp;<a class=ref href=basewords.fs.html#659>1-</a>&nbsp;<a class=ref href=crossj1.fs.html#621>repeat</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=884>hex1</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;15&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;10&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;48&nbsp;<a class=ref href=crossj1.fs.html#616>else</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;55&nbsp;<a class=ref href=crossj1.fs.html#615>then</a>&nbsp;<a class=ref href=basewords.fs.html#638>+</a>&nbsp;<a class=ref href=nuc.fs.html#879>emit</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=885>hex2</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;4&nbsp;<a class=ref href=basewords.fs.html#658>rshift</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#884>hex1</a>&nbsp;<a class=ref href=nuc.fs.html#884>hex1</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=886>hex4</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;8&nbsp;<a class=ref href=basewords.fs.html#658>rshift</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#885>hex2</a>&nbsp;<a class=ref href=nuc.fs.html#885>hex2</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=887>hex8</a>&nbsp;<a class=ref href=nuc.fs.html#886>hex4</a>&nbsp;<a class=ref href=nuc.fs.html#886>hex4</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=888>type</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=crossj1.fs.html#623>do</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#737>c@</a>&nbsp;<a class=ref href=nuc.fs.html#879>emit</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#728>1+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#624>loop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#648>drop</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=889>dump</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;addr&nbsp;u&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#622>0do</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;15&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=nuc.fs.html#731>0=</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#880>cr</a>&nbsp;<a class=ref href=nuc.fs.html#886>hex4</a>&nbsp;<a class=ref href=crossj1.fs.html#588>[char]</a>&nbsp;:&nbsp;<a class=ref href=nuc.fs.html#879>emit</a>&nbsp;<a class=ref href=nuc.fs.html#882>space</a>&nbsp;<a class=ref href=nuc.fs.html#882>space</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#737>c@</a>&nbsp;<a class=ref href=nuc.fs.html#885>hex2</a>&nbsp;<a class=ref href=nuc.fs.html#882>space</a>&nbsp;<a class=ref href=nuc.fs.html#728>1+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#624>loop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#880>cr</a>&nbsp;<a class=ref href=basewords.fs.html#648>drop</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=890>dump16</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;addr&nbsp;u&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#622>0do</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#886>hex4</a>&nbsp;<a class=ref href=crossj1.fs.html#588>[char]</a>&nbsp;:&nbsp;<a class=ref href=nuc.fs.html#879>emit</a>&nbsp;<a class=ref href=nuc.fs.html#882>space</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#886>hex4</a>&nbsp;<a class=ref href=nuc.fs.html#880>cr</a>&nbsp;<a class=ref href=nuc.fs.html#763>2+</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#624>loop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#648>drop</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=891>decimal</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;10&nbsp;<a class=ref href=nuc.fs.html#865>base</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=892>hex</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;16&nbsp;<a class=ref href=nuc.fs.html#865>base</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=893>S.R</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;u&nbsp;n&nbsp;--&nbsp;)&nbsp;<a class=ref href=basewords.fs.html#649>OVER</a>&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=nuc.fs.html#883>SPACES</a>&nbsp;<a class=ref href=nuc.fs.html#888>TYPE</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=894>D.R</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d&nbsp;n&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;8.6.1.1070&nbsp;)&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=basewords.fs.html#647>DUP</a>&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=nuc.fs.html#824>DABS</a>&nbsp;<a class=ref href=nuc.fs.html#869>&lt;#</a>&nbsp;<a class=ref href=nuc.fs.html#873>#S</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=nuc.fs.html#875>SIGN</a>&nbsp;<a class=ref href=nuc.fs.html#874>#></a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=nuc.fs.html#893>S.R</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=895>U.R</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;u&nbsp;n&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.2.2330&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=basewords.fs.html#646>SWAP</a>&nbsp;<a class=ref href=nuc.fs.html#894>D.R</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=896>.R</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;n&nbsp;n&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.2.0210&nbsp;)&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=nuc.fs.html#821>S>D</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=nuc.fs.html#894>D.R</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=897>D.</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;d&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;8.6.1.1060&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=nuc.fs.html#894>D.R</a>&nbsp;<a class=ref href=nuc.fs.html#882>SPACE</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=898>U.</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;u&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.2320&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;0&nbsp;<a class=ref href=nuc.fs.html#897>D.</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=899>.</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;n&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.0180&nbsp;)&nbsp;<a class=ref href=nuc.fs.html#865>BASE</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;10&nbsp;<a class=ref href=basewords.fs.html#639>XOR</a>&nbsp;<a class=ref href=crossj1.fs.html#613>IF</a>&nbsp;<a class=ref href=nuc.fs.html#898>U.</a>&nbsp;<a class=ref href=basewords.fs.html#664>EXIT</a>&nbsp;<a class=ref href=crossj1.fs.html#615>THEN</a>&nbsp;<a class=ref href=nuc.fs.html#821>S>D</a>&nbsp;<a class=ref href=nuc.fs.html#897>D.</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=900>?</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;a&nbsp;--&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;15.6.1.0600&nbsp;)&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#899>.</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;Numeric&nbsp;input&nbsp;)</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=901>DIGIT?</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;c&nbsp;base&nbsp;--&nbsp;u&nbsp;f&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;0xA3&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>R</a>&nbsp;<a class=ref href=crossj1.fs.html#588>[CHAR]</a>&nbsp;0&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=crossj1.fs.html#611>D#</a>&nbsp;9&nbsp;<a class=ref href=basewords.fs.html#649>OVER</a>&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#613>IF</a>&nbsp;<a class=ref href=crossj1.fs.html#611>D#</a>&nbsp;7&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=basewords.fs.html#647>DUP</a>&nbsp;<a class=ref href=crossj1.fs.html#611>D#</a>&nbsp;10&nbsp;<a class=ref href=basewords.fs.html#644>&lt;</a>&nbsp;<a class=ref href=basewords.fs.html#641>OR</a>&nbsp;<a class=ref href=crossj1.fs.html#615>THEN</a>&nbsp;<a class=ref href=basewords.fs.html#647>DUP</a>&nbsp;<a class=ref href=basewords.fs.html#652>R></a>&nbsp;<a class=ref href=basewords.fs.html#645>U&lt;</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=902>>number</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;ud&nbsp;a&nbsp;u&nbsp;--&nbsp;ud&nbsp;a&nbsp;u&nbsp;)&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;6.1.0570&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#617>begin</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#731>0=</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a>&nbsp;<a class=ref href=basewords.fs.html#664>exit</a>&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=nuc.fs.html#737>c@</a>&nbsp;<a class=ref href=nuc.fs.html#865>base</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#901>digit?</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#814>2swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=nuc.fs.html#865>base</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#849>um*</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=nuc.fs.html#821>s>d</a>&nbsp;<a class=ref href=nuc.fs.html#818>d+</a>&nbsp;<a class=ref href=nuc.fs.html#814>2swap</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=nuc.fs.html#768>/string</a>&nbsp;<a class=ref href=nuc.fs.html#902>>number</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#616>else</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#648>drop</a>&nbsp;<a class=ref href=basewords.fs.html#664>exit</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#618>again</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=903>.s</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#588>[char]</a>&nbsp;&lt;&nbsp;<a class=ref href=nuc.fs.html#879>emit</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#726>depth</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=nuc.fs.html#885>hex2</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#588>[char]</a>&nbsp;>&nbsp;<a class=ref href=nuc.fs.html#879>emit</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;8&nbsp;<a class=ref href=nuc.fs.html#755>min</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#734>?dup</a>&nbsp;<a class=ref href=crossj1.fs.html#613>if</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#622>0do</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#625>i</a>&nbsp;<a class=ref href=nuc.fs.html#805>pick</a>&nbsp;<a class=ref href=nuc.fs.html#886>hex4</a>&nbsp;<a class=ref href=nuc.fs.html#882>space</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#624>loop</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#615>then</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=main.fs.html#636>build-debug?</a>&nbsp;<a class=ref href=crossj1.fs.html#584>[IF]</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=904>(assert)</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#592>s"</a>&nbsp;****&nbsp;ASSERTION&nbsp;FAILED&nbsp;****&nbsp;"&nbsp;<a class=ref href=nuc.fs.html#888>type</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#570>;fallthru</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=905>(snap)</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#888>type</a>&nbsp;<a class=ref href=nuc.fs.html#882>space</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#592>s"</a>&nbsp;LINE&nbsp;"&nbsp;<a class=ref href=nuc.fs.html#888>type</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#899>.</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#588>[char]</a>&nbsp;:&nbsp;<a class=ref href=nuc.fs.html#879>emit</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#882>space</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#903>.s</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=nuc.fs.html#880>cr</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#586>[THEN]</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=906>endian</a>&nbsp;<a class=ref href=basewords.fs.html#647>dup</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;8&nbsp;<a class=ref href=basewords.fs.html#657>lshift</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;8&nbsp;<a class=ref href=basewords.fs.html#658>rshift</a>&nbsp;<a class=ref href=basewords.fs.html#641>or</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=907>2endian</a>&nbsp;<a class=ref href=nuc.fs.html#906>endian</a>&nbsp;<a class=ref href=basewords.fs.html#646>swap</a>&nbsp;<a class=ref href=nuc.fs.html#906>endian</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=908>swab</a>&nbsp;<a class=ref href=nuc.fs.html#906>endian</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=909>typepad</a>&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;c-addr&nbsp;u&nbsp;w&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=basewords.fs.html#649>over</a>&nbsp;<a class=ref href=nuc.fs.html#753>-</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=nuc.fs.html#888>type</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=nuc.fs.html#883>spaces</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=910>even?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#611>d#</a>&nbsp;1&nbsp;<a class=ref href=basewords.fs.html#640>and</a>&nbsp;<a class=ref href=nuc.fs.html#731>0=</a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;rise?&nbsp;and&nbsp;fall?&nbsp;act&nbsp;like&nbsp;!&nbsp;-&nbsp;except&nbsp;that&nbsp;they&nbsp;leave&nbsp;a&nbsp;true</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#579>\</a>&nbsp;if&nbsp;the&nbsp;value&nbsp;rose&nbsp;or&nbsp;fell,&nbsp;respectively.</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=911>rise?</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;u&nbsp;a&nbsp;--&nbsp;f&nbsp;)&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=nuc.fs.html#751>u></a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+<a class=ref href=crossj1.fs.html#568>:</a>&nbsp;<a class=name name=912>fall?</a>&nbsp;&nbsp;&nbsp;<a class=ref href=crossj1.fs.html#578>(</a>&nbsp;u&nbsp;a&nbsp;--&nbsp;f&nbsp;)&nbsp;<a class=ref href=nuc.fs.html#741>2dup</a>&nbsp;<a class=ref href=basewords.fs.html#654>@</a>&nbsp;<a class=ref href=basewords.fs.html#645>u&lt;</a>&nbsp;<a class=ref href=basewords.fs.html#651>>r</a>&nbsp;<a class=ref href=basewords.fs.html#655>!</a>&nbsp;<a class=ref href=basewords.fs.html#652>r></a>&nbsp;<a class=ref href=crossj1.fs.html#569>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=basewords.fs.html#675>]module</a></code>
+<br>
+
+</div>
+<p class=footer>Created with <a href=http://excamera.com/sphinx/docforth.html>docforth</a>
+</body></html>

@@ -1,0 +1,209 @@
+<html>
+<head>
+<style type=text/css>
+div.code {
+  padding:0.5em;
+  font-size:large;
+  line-height:110%;
+}
+div.code a.name {
+  font-weight:bold;
+}
+div.code a.name:target {
+  background-color:#ff7
+}
+div.code a.ref {
+  text-decoration:none;
+  color:#007
+}
+div.code a.ref:hover {
+  text-decoration:underline;
+}
+.footer {
+  font-size:x-small;
+  line-height:110%;
+}
+</style>
+</head>
+<body>
+<div class=code>
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;Main&nbsp;file&nbsp;for&nbsp;pure&nbsp;ANS&nbsp;forth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JCB&nbsp;13:53&nbsp;11/27/10)</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=456>parse-word</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0770>bl</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2450>word</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0980>count</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=457>defer</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1000>create</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;"name"&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2510>[']</a>&nbsp;abort&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0150>,</a>&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1250>does></a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0650>@</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1370>execute</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=458>include</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;"filename"&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0770>bl</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2450>word</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0980>count</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.1718>included</a>&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1170>decimal</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=459>is</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;xt&nbsp;"name"&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0070>'</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;xt&nbsp;xt2)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans15.htm#15.6.2.2250>state</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0650>@</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1700>if</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2033>postpone</a>&nbsp;literal&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2033>postpone</a>&nbsp;>body&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2033>postpone</a>&nbsp;!</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1310>else</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0550>>body</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0010>!</a></code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2270>then</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1710>immediate</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=460>include</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;"filename"&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0770>bl</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.2.2008>parse</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.1718>included</a>&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1170>decimal</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=461>Do-Vocabulary</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1250>DOES></a>&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0650>@</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0580>>R</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;)<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;R:&nbsp;widnew)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans16.htm#16.6.1.1647>GET-ORDER</a>&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2260>SWAP</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1260>DROP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;wid_n&nbsp;...&nbsp;wid_2&nbsp;n)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2060>R></a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2260>SWAP</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans16.htm#16.6.1.2197>SET-ORDER</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=462>VOCABULARY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans11.htm#11.6.1.0080>(</a>&nbsp;"name"&nbsp;--&nbsp;)</code>
+<br>
+
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans16.htm#16.6.1.2460>WORDLIST</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1000>CREATE</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0150>,</a>&nbsp;&nbsp;<a class=ref href=ans.fs.html#461>Do-Vocabulary</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=463>-rot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2160>rot</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.2160>rot</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=464>nstime</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=465>&lt;=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0540>></a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1720>invert</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=466>>=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0480>&lt;</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1720>invert</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=467>d0&lt;></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans8.htm#8.6.1.1080>d0=</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1720>invert</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=468>f></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans12.htm#12.6.1.1620>fswap</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans12.htm#12.6.1.1460>f&lt;</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=469>f&lt;=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=ans.fs.html#468>f></a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1720>invert</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=470>f>=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans12.htm#12.6.1.1460>f&lt;</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1720>invert</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=471>f=</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0e0&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans12.htm#12.6.2.1640>f~</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0450>:</a>&nbsp;<a class=name name=472>f&lt;></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=ref href=ans.fs.html#471>f=</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.1720>invert</a>&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans6.htm#6.1.0460>;</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
+<code>
+3.1415926e0&nbsp;<a class=ref href=http://forth.sourceforge.net/std/dpans/dpans12.htm#12.6.1.1492>fconstant</a>&nbsp;<a class=name name=473>pi</a></code>
+<br>
+
+<code>
+</code>
+<br>
+
