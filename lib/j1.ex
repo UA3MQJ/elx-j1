@@ -9,7 +9,8 @@ defmodule J1CPU do
             s: [],
             rp: 0,
             sp: 0,
-            mem: %{}
+            mem: %{},
+            state: nil
 
   def new(), do: %J1CPU{}
 end
@@ -74,7 +75,7 @@ defmodule J1 do
     end
 
     case result do
-      :halt -> j1
+      :halt -> %{j1 | state: :halted}
       _else -> run(result)
     end
   end
