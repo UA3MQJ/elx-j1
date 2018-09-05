@@ -69,7 +69,7 @@ defmodule J1 do
   # run
   def run(j1) do
     result = try do
-      new_j1 = J1.exec(j1, hardware_read_mem(j1.mem, j1.pc))
+      J1.exec(j1, hardware_read_mem(j1.mem, j1.pc))
     rescue
       _ -> :halt
     end
@@ -82,7 +82,7 @@ defmodule J1 do
 
   # exec command (mem[pc])
   def exec(j1),
-    do: J1.exec(j1, j1.mem[j1.pc])
+    do: J1.exec(j1, hardware_read_mem(j1.mem, j1.pc))
 
   # number to binary
   def exec(j1, cmd) when is_number(cmd),
@@ -235,7 +235,7 @@ defmodule J1 do
     mem
   end
 
-  def hardware_write_mem(mem, 10001, value) do
+  def hardware_write_mem(mem, 10001, _value) do
     Logger.info "J1 halt"
     raise "halt"
     mem

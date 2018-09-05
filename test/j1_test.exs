@@ -253,6 +253,27 @@ defmodule J1Test do
     assert J1.read_mem(j1, 2) == 1
   end
 
+  # R->PC return flag test
+  test "R->PC" do
+    j1 = J1CPU.new
+    |> J1.write_mem( 0, J1CMD.call(10))
+    |> J1.write_mem( 1, J1CMD.lit(1))
+    |> J1.write_mem( 10, J1CMD.lit(10))
+    |> J1.write_mem( 11, J1CMD.lit(20))
+    # + R->PC rs=-1
+    # Operation +; R->PC for return; rs=-1 for pop add from return stack
+    #                              op,    tn,   rpc,    tr, ds, rs,   nti
+    |> J1.write_mem( 12, J1CMD.alu( 2, false,  true, false, -1, -1, false))
+    |> J1.exec()
+    |> J1.exec()
+    |> J1.exec()
+    |> J1.exec()
+
+    # Logger.debug "R->PC j1=#{inspect j1}"
+    # after 4 tick, return operated
+    assert %{s: [30], sp: 1, r: [], rp: 0, pc: 1} = j1
+  end
+
   def op(op, tn, rpc, tr, ds, rs, nti) do
     tn  = if (tn),  do: 1, else: 0
     tr  = if (tr),  do: 1, else: 0
