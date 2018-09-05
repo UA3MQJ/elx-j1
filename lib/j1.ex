@@ -143,6 +143,12 @@ defmodule J1 do
     Logger.error "Unknown cmd=#{inspect cmd}"
   end
 
+  def write_mem(j1, address, value),
+    do: %{j1 | mem: Map.merge(j1.mem, %{address => value})}
+
+  def read_mem(j1, address),
+    do: j1.mem[address]
+
   def lit(j1, value),
     do: exec(j1, << 1 :: size(1), value :: size(15) >>)
 

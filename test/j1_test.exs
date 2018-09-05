@@ -228,7 +228,7 @@ defmodule J1Test do
     addr_cmd = op(12, false, false, false,  0,  0, false)
 
     j1 = J1CPU.new
-    |> Map.merge(%{mem: %{1 => 22}})
+    |> J1.write_mem(1, 22)
     |> J1.lit(1)
     |> J1.exec(addr_cmd)
 
@@ -250,6 +250,7 @@ defmodule J1Test do
 
     # Logger.debug "! j1=#{inspect j1}"
     assert %{mem: %{2 => 1}, s: [1], sp: 1, r: [], rp: 0, pc: 3} = j1
+    assert J1.read_mem(j1, 2) == 1
   end
 
   def op(op, tn, rpc, tr, ds, rs, nti) do
