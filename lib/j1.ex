@@ -68,8 +68,7 @@ defmodule J1 do
   # run
   def run(j1) do
     result = try do
-      new_j1 = J1.exec(j1, j1.mem[j1.pc])
-      # run(new_j1)
+      new_j1 = J1.exec(j1, hardware_read_mem(j1.mem, j1.pc))
     rescue
       _ -> :halt
     end
