@@ -14,6 +14,50 @@ defmodule J1CPU do
   def new(), do: %J1CPU{}
 end
 
+defmodule J1CMD do
+  @moduledoc """
+  J1 COMMAND makers
+  """
+  def lit(value),    do: << 1 :: size(1), value :: size(15) >> |> to_int()
+  def jmp(address),  do: << 0 :: size(1), 0 :: size(1), 0 :: size(1), address :: size(13) >> |> to_int()
+  def jz(address),   do: << 0 :: size(1), 0 :: size(1), 1 :: size(1), address :: size(13) >> |> to_int()
+  def call(address), do: << 0 :: size(1), 1 :: size(1), 0 :: size(1), address :: size(13) >> |> to_int()
+  
+  # ALU                    op,    tn,   rpc,    tr, ds, rs,   nti
+  def dup(),       do: alu( 0,  true, false, false, +1,  0, false) # dup
+  def over(),      do: alu( 1,  true, false, false, +1,  0, false) # over
+  def invert(),    do: alu( 6, false, false, false,  0,  0, false) # invert
+  def plus(),      do: alu( 2, false, false, false, -1,  0, false) # +
+  def swap(),      do: alu( 1,  true, false, false,  0,  0, false) # swap
+  def nip(),       do: alu( 0, false, false, false, -1,  0, false) # nip
+  def drop(),      do: alu( 1, false, false, false, -1,  0, false) # drop
+  def to_r(),      do: alu( 1, false, false,  true, -1, +1, false) # >r to_r
+  def from_r(),    do: alu(11,  true, false, false, +1, -1, false) # r> from_r
+  def copy_r(),    do: alu(11,  true, false, false, +1,  0, false) # R@ copy_r
+  def from_addr(), do: alu(12, false, false, false,  0,  0, false) # @ from_addr
+  def to_addr(),   do: alu( 1, false, false, false, -1,  0,  true) # ! to_addr
+
+  # alu command_encode
+  def alu(op, tn, rpc, tr, ds, rs, nti) do
+    tn  = if (tn),  do: 1, else: 0
+    tr  = if (tr),  do: 1, else: 0
+    rpc = if (rpc), do: 1, else: 0
+    nti = if (nti), do: 1, else: 0
+    ds  = if (ds == -1), do: 2, else: ds
+    rs  = if (rs == -1), do: 2, else: rs
+
+    bin = << 3 :: size(3), 
+       rpc :: size(1), op :: size(4), 
+       tn :: size(1), tr :: size(1), nti :: size(1),
+       0 :: size(1), rs :: size(2), ds :: size(2) >>
+
+    to_int(bin)
+  end
+
+  def to_int(<< word :: integer-unsigned-16 >>), do: word
+end
+
+
 defmodule J1 do
   @moduledoc """
   Documentation for J1.
@@ -21,10 +65,17 @@ defmodule J1 do
   use Bitwise
   require Logger
 
+  # exec command (mem[pc])
+  def exec(j1),
+    do: J1.exec(j1, j1.mem[j1.pc])
+
+  # number to binary
+  def exec(j1, cmd) when is_number(cmd),
+    do: exec(j1, << cmd :: integer-unsigned-16 >>)
+
   # literal
-  def exec(j1, << 1 :: size(1), value :: size(15) >> = _cmd) do
-    %{j1 | s: [value] ++ j1.s, sp: j1.sp + 1, pc: j1.pc + 1}
-  end
+  def exec(j1, << 1 :: size(1), value :: size(15) >> = _cmd),
+    do: %{j1 | s: [value] ++ j1.s, sp: j1.sp + 1, pc: j1.pc + 1}
 
   # jump
   def exec(j1, << 0 :: size(3), address :: size(13) >> = _cmd),
@@ -150,16 +201,16 @@ defmodule J1 do
     do: j1.mem[address]
 
   def lit(j1, value),
-    do: exec(j1, << 1 :: size(1), value :: size(15) >>)
+    do: exec(j1, J1CMD.lit(value))
 
   def jmp(j1, address),
-    do: exec(j1, << 0 :: size(1), 0 :: size(1), 0 :: size(1), address :: size(13) >> )
+    do: exec(j1, J1CMD.jmp(address))
 
   def jz(j1, address),
-    do: exec(j1, << 0 :: size(1), 0 :: size(1), 1 :: size(1), address :: size(13) >> )
+    do: exec(j1, J1CMD.jz(address))
 
   def call(j1, address),
-    do: exec(j1, << 0 :: size(1), 1 :: size(1), 0 :: size(1), address :: size(13) >> )
+    do: exec(j1, J1CMD.call(address))
 
   def uint16(x) do
     << result :: size(16) >> = << x :: integer-unsigned-16 >>
