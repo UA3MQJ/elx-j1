@@ -50,8 +50,10 @@ be found at [https://hexdocs.pm/j1](https://hexdocs.pm/j1).
 
  other
 
- http://www.bradrodriguez.com/papers/piscedu2.htm
+ https://github.com/jamesbowman/j1 other impl on verilog
 
- http://iosifk.narod.ru/hdl_coding/verilog.htm
+ http://www.bradrodriguez.com/papers/piscedu2.htm A Minimal TTL Processor for Architecture Exploration
+
+ http://iosifk.narod.ru/hdl_coding/verilog.htm Статья "Микропроцессор своими руками" часть 1
 
  
