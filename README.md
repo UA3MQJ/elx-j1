@@ -1,6 +1,6 @@
 # J1
 
-**TODO: Add description**
+Elixir J1 Forth CPU emulator
 
 ## Installation
 
@@ -29,9 +29,12 @@ be found at [https://hexdocs.pm/j1](https://hexdocs.pm/j1).
 
  http://excamera.com/files/j1demo/docforth/basewords.fs.html
 
-https://github.com/jamesbowman/swapforth
+ https://github.com/jamesbowman/swapforth See j1a, j1b
+
 
  https://nanode0000.wordpress.com/2017/04/08/exploring-the-j1-instruction-set-and-architecture/
+
+ https://www.fpgarelated.com/showarticle/790.php
 
 https://github.com/gerryjackson/forth2012-test-suite/tree/master ANS Forth standards requires a set of test programs
 
