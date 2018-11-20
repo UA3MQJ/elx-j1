@@ -29,7 +29,15 @@ be found at [https://hexdocs.pm/j1](https://hexdocs.pm/j1).
 
  http://excamera.com/files/j1demo/docforth/basewords.fs.html
 
+https://github.com/jamesbowman/swapforth
+
  https://nanode0000.wordpress.com/2017/04/08/exploring-the-j1-instruction-set-and-architecture/
+
+https://github.com/gerryjackson/forth2012-test-suite/tree/master ANS Forth standards requires a set of test programs
+
+https://www.veripool.org/projects/verilator/wiki/Manual-verilator for Verilog j1 emulation
+
+https://www.gnu.org/software/gforth/
 
  https://zserge.wordpress.com/2012/04/23/%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80-j1-%D0%BA%D1%83%D0%B4%D0%B0-%D1%83%D0%B6-%D0%BF%D1%80%D0%BE%D1%89%D0%B5/
 
@@ -47,6 +55,8 @@ be found at [https://hexdocs.pm/j1](https://hexdocs.pm/j1).
  https://github.com/samawati/j1eforth
  
  https://github.com/ddb/j1tools
+
+ https://github.com/jamesbowman/swapforth
 
  other
 

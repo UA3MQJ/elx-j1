@@ -7,7 +7,7 @@ defmodule J1CMD do
   def jmp(address),  do: << 0 :: size(1), 0 :: size(1), 0 :: size(1), address :: size(13) >> |> bin_to_uint()
   def jz(address),   do: << 0 :: size(1), 0 :: size(1), 1 :: size(1), address :: size(13) >> |> bin_to_uint()
   def call(address), do: << 0 :: size(1), 1 :: size(1), 0 :: size(1), address :: size(13) >> |> bin_to_uint()
-  
+
   # ALU                    op,    tn,   rpc,    tr, ds, rs,   nti
   def dup(),       do: alu( 0,  true, false, false, +1,  0, false) # dup
   def over(),      do: alu( 1,  true, false, false, +1,  0, false) # over
