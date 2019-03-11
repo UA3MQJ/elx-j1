@@ -1,5 +1,7 @@
 # J1
 
+TEST
+
 Elixir J1 Forth CPU emulator
 
 ## Installation
