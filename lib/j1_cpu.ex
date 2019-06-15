@@ -1,4 +1,4 @@
-defmodule J1CPU do
+defmodule J1.CPU do
   @moduledoc """
   J1 CPU state
   """
@@ -10,7 +10,8 @@ defmodule J1CPU do
             rp: 0,
             sp: 0,
             mem: %{},
+            memory_mapper_module: J1.MEMORYMAP,
             state: nil
 
-  def new(), do: %J1CPU{}
+  def new(), do: %J1.CPU{}
 end

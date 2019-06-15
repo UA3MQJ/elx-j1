@@ -4,7 +4,7 @@ defmodule J1Test do
   doctest J1
 
   test "literal" do
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
 
     j1 = J1.lit(j1, 5)
     assert %{s: [5], sp: 1, pc: 1} = j1
@@ -14,13 +14,13 @@ defmodule J1Test do
   end
 
   test "jump" do
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.jmp(5)
     assert %{pc: 5} = j1
   end
 
   test "conditional jump" do
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(0)
     |> J1.lit(1)
 
@@ -36,7 +36,7 @@ defmodule J1Test do
   end
 
   test "call" do
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.call(7)
     assert %{pc: 7, r: [1]} = j1
   end
@@ -46,7 +46,7 @@ defmodule J1Test do
   # word      op,  tn, rpc, tr, ds, rs, nti
   # dup        T    v           +1   0
   # over       N    v           +1   0
-  # invert    ~T                -1   0
+  # invert    ~T                 0   0
   # +         T+N               -1   0
   # swap       N    v            0   0
   # nip        T                -1   0
@@ -65,7 +65,7 @@ defmodule J1Test do
     #            op,    tn,   rpc,    tr, ds, rs,   nti
     dup_cmd = op( 0,  true, false, false, +1,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.exec(dup_cmd)
 
@@ -81,7 +81,7 @@ defmodule J1Test do
     #             op,    tn,   rpc,    tr, ds, rs,   nti
     over_cmd = op( 1,  true, false, false, +1,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.lit(2)
     |> J1.exec(over_cmd)
@@ -97,7 +97,7 @@ defmodule J1Test do
     #               op,    tn,   rpc,    tr, ds, rs,   nti
     invert_cmd = op( 6, false, false, false,  0,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(0)
     |> J1.exec(invert_cmd)
 
@@ -110,7 +110,7 @@ defmodule J1Test do
     #             op,    tn,   rpc,    tr, ds, rs,   nti
     plus_cmd = op( 2, false, false, false, -1,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.lit(2)
     |> J1.exec(plus_cmd)
@@ -126,7 +126,7 @@ defmodule J1Test do
     #             op,    tn,   rpc,    tr, ds, rs,   nti
     swap_cmd = op( 1,  true, false, false,  0,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.lit(2)
     |> J1.exec(swap_cmd)
@@ -142,7 +142,7 @@ defmodule J1Test do
     #            op,    tn,   rpc,    tr, ds, rs,   nti
     nip_cmd = op( 0, false, false, false, -1,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.lit(2)
     |> J1.exec(nip_cmd)
@@ -158,7 +158,7 @@ defmodule J1Test do
     #             op,    tn,   rpc,    tr, ds, rs,   nti
     drop_cmd = op( 1, false, false, false, -1,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.lit(2)
     |> J1.exec(drop_cmd)
@@ -174,7 +174,7 @@ defmodule J1Test do
     #             op,    tn,   rpc,    tr, ds, rs,   nti
     tor_cmd = op( 1, false, false,  true, -1, +1, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.exec(tor_cmd)
 
@@ -192,7 +192,7 @@ defmodule J1Test do
     #              op,    tn,   rpc,    tr, ds, rs,   nti
     fromr_cmd = op(11, true, false, false, +1, -1, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.exec(tor_cmd)
     |> J1.exec(fromr_cmd)
@@ -211,7 +211,7 @@ defmodule J1Test do
     #              op,    tn,   rpc,    tr, ds, rs,   nti
     copyr_cmd = op(11,  true, false, false, +1,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.exec(tor_cmd)
     |> J1.exec(copyr_cmd)
@@ -227,7 +227,7 @@ defmodule J1Test do
     #             op,    tn,   rpc,    tr, ds, rs,   nti
     addr_cmd = op(12, false, false, false,  0,  0, false)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.write_mem(1, 22)
     |> J1.lit(1)
     |> J1.exec(addr_cmd)
@@ -243,7 +243,7 @@ defmodule J1Test do
     #             op,    tn,   rpc,    tr, ds, rs,   nti
     addr_cmd = op( 1, false, false, false, -1,  0,  true)
 
-    j1 = J1CPU.new
+    j1 = J1.CPU.new
     |> J1.lit(1)
     |> J1.lit(2)
     |> J1.exec(addr_cmd)
@@ -255,15 +255,15 @@ defmodule J1Test do
 
   # R->PC return flag test
   test "R->PC" do
-    j1 = J1CPU.new
-    |> J1.write_mem( 0, J1CMD.call(10))
-    |> J1.write_mem( 1, J1CMD.lit(1))
-    |> J1.write_mem( 10, J1CMD.lit(10))
-    |> J1.write_mem( 11, J1CMD.lit(20))
+    j1 = J1.CPU.new
+    |> J1.write_mem( 0, J1.CMD.call(10))
+    |> J1.write_mem( 1, J1.CMD.lit(1))
+    |> J1.write_mem( 10, J1.CMD.lit(10))
+    |> J1.write_mem( 11, J1.CMD.lit(20))
     # + R->PC rs=-1
     # Operation +; R->PC for return; rs=-1 for pop add from return stack
     #                              op,    tn,   rpc,    tr, ds, rs,   nti
-    |> J1.write_mem( 12, J1CMD.alu( 2, false,  true, false, -1, -1, false))
+    |> J1.write_mem( 12, J1.CMD.alu( 2, false,  true, false, -1, -1, false))
     |> J1.exec()
     |> J1.exec()
     |> J1.exec()

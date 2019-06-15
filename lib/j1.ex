@@ -8,7 +8,7 @@ defmodule J1 do
   # run
   def run(j1) do
     result = try do
-      J1.exec(j1, hardware_read_mem(j1.mem, j1.pc))
+      J1.exec(j1, hardware_read_mem(j1, j1.pc))
     rescue
       _ -> :halt
     end
@@ -21,7 +21,7 @@ defmodule J1 do
 
   # exec command (mem[pc])
   def exec(j1),
-    do: J1.exec(j1, hardware_read_mem(j1.mem, j1.pc))
+    do: J1.exec(j1, hardware_read_mem(j1, j1.pc))
 
   # number to binary
   def exec(j1, cmd) when is_number(cmd),
@@ -78,7 +78,7 @@ defmodule J1 do
        9 -> bsr(s_n, s_t)
       10 -> s_t - 1
       11 -> r_r
-      12 -> hardware_read_mem(mem, s_t) # mem[s_t]
+      12 -> hardware_read_mem(j1, s_t) # mem[s_t]
       13 -> bsl(s_n, s_t)
       14 -> uint16(sp) # s stack depth (глубина стека данных)
       15 -> if (uint16(s_n) < s_t), do: 1, else: 0
@@ -137,7 +137,7 @@ defmodule J1 do
     end
 
     new_mem = case nt==1 do
-      true -> hardware_write_mem(mem, s_t, s_n)
+      true -> hardware_write_mem(j1, s_t, s_n)
       false -> mem
     end
 
@@ -155,41 +155,22 @@ defmodule J1 do
     do: j1.mem[address]
 
   def lit(j1, value),
-    do: exec(j1, J1CMD.lit(value))
+    do: exec(j1, J1.CMD.lit(value))
 
   def jmp(j1, address),
-    do: exec(j1, J1CMD.jmp(address))
+    do: exec(j1, J1.CMD.jmp(address))
 
   def jz(j1, address),
-    do: exec(j1, J1CMD.jz(address))
+    do: exec(j1, J1.CMD.jz(address))
 
   def call(j1, address),
-    do: exec(j1, J1CMD.call(address))
+    do: exec(j1, J1.CMD.call(address))
 
   # hardware memory mapping emulation
-
-  # by default - write to internal memory
-  def hardware_write_mem(mem, 10000, value) do
-    IO.write "#{[value]}"
-    mem
-  end
-
-  def hardware_write_mem(mem, 10001, _value) do
-    Logger.info "J1 halt"
-    raise "halt"
-    mem
-  end
-
-  def hardware_write_mem(mem, address, value),
-    do: Map.merge(mem, %{address => value})
-
-  # mem[s_t]
-  def hardware_read_mem(mem, address) do
-    case mem[address] do
-      nil -> << 0 :: integer-unsigned-16 >>
-      data -> data
-    end
-  end
+  def hardware_write_mem(j1, address, value),
+    do: j1.memory_mapper_module.hardware_write_mem(j1, address, value)
+  def hardware_read_mem(j1, address),
+    do: j1.memory_mapper_module.hardware_read_mem(j1, address)
 
   # utils
   def uint16(x) do
