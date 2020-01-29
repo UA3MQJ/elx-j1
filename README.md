@@ -1,7 +1,5 @@
 # J1
 
-TEST
-
 Elixir J1 Forth CPU emulator
 
 ## Installation
@@ -70,5 +68,7 @@ https://www.gnu.org/software/gforth/
  http://www.bradrodriguez.com/papers/piscedu2.htm A Minimal TTL Processor for Architecture Exploration
 
  http://iosifk.narod.ru/hdl_coding/verilog.htm Статья "Микропроцессор своими руками" часть 1
+
+ http://astro.pas.rochester.edu/Forth/forth-words.html
 
  
