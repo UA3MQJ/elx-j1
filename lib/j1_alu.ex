@@ -42,4 +42,20 @@ defmodule J1.ALU do
   def opcode("depth"), do: 14
   def opcode("Nu<T"), do: 15
 
+  def opcode(0),  do: "T"
+  def opcode(1),  do: "N"
+  def opcode(2),  do: "T+N"
+  def opcode(3),  do: "TandN"
+  def opcode(4),  do: "TorN"
+  def opcode(5),  do: "TxorN"
+  def opcode(6),  do: "~T"
+  def opcode(7),  do: "N=T"
+  def opcode(8),  do: "N<T"
+  def opcode(9),  do: "NrshiftT"
+  def opcode(10), do: "T-1"
+  def opcode(11), do: "R"
+  def opcode(12), do: "[T]"
+  def opcode(13), do: "NlshiftT"
+  def opcode(14), do: "depth"
+  def opcode(15), do: "Nu<T"
 end

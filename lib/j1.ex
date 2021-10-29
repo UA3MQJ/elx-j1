@@ -8,7 +8,10 @@ defmodule J1 do
   # run
   def run(j1) do
     result = try do
-      J1.exec(j1, hardware_read_mem(j1, j1.pc))
+      pc_hex = Integer.to_string(j1.pc, 16)
+      Logger.debug ">>> j1.pc=0x#{pc_hex}"
+      :timer.sleep(1000)
+      J1.exec(j1)
     rescue
       _ -> :halt
     end
@@ -19,6 +22,123 @@ defmodule J1 do
     end
   end
 
+  def dump(_, _, 0), do: :ok
+  def dump(j1, start, size) do
+    address = start
+    address_hex = address
+      |> Integer.to_string(16)
+      |> String.pad_leading(4, "0000")
+    data = hardware_read_mem(j1, start)
+
+    data_hex = data
+    |> Integer.to_string(16)
+    |> String.pad_leading(4, "0000")
+
+    data_bin = data
+    |> Integer.to_string(2)
+    |> String.pad_leading(16, "0000000000000000")
+
+    opcode = decode(<< data :: integer-unsigned-16 >>)
+
+    Logger.debug ">>>> #{address_hex}:#{data_hex} (#{data_bin}) - #{opcode}"
+    dump(j1, start+1, size-1)
+  end
+
+  def decode(data) when is_number(data),
+    do: decode(<< data :: integer-unsigned-16 >>)
+
+  def decode(<< 1 :: size(1), value :: size(15) >> = _cmd) do
+    value_hex = value
+    |> Integer.to_string(16)
+    |> String.pad_leading(4, "0000")
+    "literal #{value} (#{value_hex}h)"
+  end
+
+  def decode(<< 0 :: size(3), address :: size(13) >> = _cmd) do
+    address_hex = address
+    |> Integer.to_string(16)
+    |> String.pad_leading(4, "0000")
+    "jump #{address} (#{address_hex}h)"
+  end
+
+  def decode(<< 1 :: size(3), address :: size(13) >> = _cmd) do
+    address_hex = address
+    |> Integer.to_string(16)
+    |> String.pad_leading(4, "0000")
+    "conditional jump #{address} (#{address_hex}h)"
+  end
+
+  def decode(<< 2 :: size(3), address :: size(13) >> = _cmd) do
+    address_hex = address
+    |> Integer.to_string(16)
+    |> String.pad_leading(4, "0000")
+    "call #{address} (#{address_hex}h)"
+  end
+
+  def decode(<< 3 :: size(3), _word :: size(13) >> = cmd) do
+
+    << _ :: size(3), rpc :: size(1), code :: size(4),
+       tn :: size(1), tr :: size(1), nt :: size(1),
+       _ :: size(1), rstackpm :: size(2), dstackpm :: size(2) >> = cmd
+
+    # dstackpm==3 = -1
+    # dstackpm==1 = +1
+    cond do
+      code==0 and tn==1 and dstackpm==1 ->
+        "alu DUP"
+      code==1 and tn==1 and dstackpm==1 ->
+        "alu OVER"
+      code==6 ->
+        "alu INVERT"
+      code==2 and dstackpm==3 ->
+        "alu +"
+      code==1 and tn==1 ->
+        "alu SWAP"
+      code==0 and dstackpm==3 ->
+        "alu NIP"
+      code==1 and dstackpm==3 ->
+        "alu DROP"
+      code==0 and rpc==1 and rstackpm==3 ->
+        "alu ;"
+      code==1 and tr==1 and dstackpm==3 and dstackpm==1 ->
+        "alu >R"
+      code==11 and tr==1 and tn==1 and dstackpm==1 and rstackpm==3 ->
+        "alu R>"
+      code==11 and tr==1 and tn==1 and dstackpm==1 ->
+        "alu R@"
+      code==12 ->
+        "alu @"
+      code==1 and dstackpm==3 and nt==1 ->
+        "alu !"
+
+      true ->
+        # Logger.debug ">>> code=#{code} dstackpm=#{dstackpm}"
+        case code do
+          0 -> "alu T"
+          1 -> "alu N"
+          2 -> "alu T + N"
+          3 -> "alu T and N"
+          4 -> "alu T or N"
+          5 -> "alu T xor N"
+          6 -> "alu ~T"
+          7 -> "alu N = T"
+          8 -> "alu N < T"
+          9 -> "alu N rshift T"
+         10 -> "alu T - 1"
+         11 -> "alu R"
+         12 -> "alu [T]"
+         13 -> "alu NlshiftT"
+         14 -> "alu depth"
+         15 -> "alu Nu<T"
+        end
+    end
+  end
+
+
+  def decode(_),
+    do: "?"
+
+
   # exec command (mem[pc])
   def exec(j1),
     do: J1.exec(j1, hardware_read_mem(j1, j1.pc))
@@ -28,22 +148,46 @@ defmodule J1 do
     do: exec(j1, << cmd :: integer-unsigned-16 >>)
 
   # literal
-  def exec(j1, << 1 :: size(1), value :: size(15) >> = _cmd),
-    do: %{j1 | s: [value] ++ j1.s, sp: j1.sp + 1, pc: j1.pc + 1}
+  # def exec(j1, << 1 :: size(1), value :: size(15) >> = _cmd),
+  #   do: %{j1 | s: [value] ++ j1.s, sp: j1.sp + 1, pc: j1.pc + 1}
+  def exec(j1, << 1 :: size(1), value :: size(15) >> = _cmd) do
+    Logger.debug ">>>>>> literal #{value}"
+    %{j1 | s: [value] ++ j1.s, sp: j1.sp + 1, pc: j1.pc + 1}
+  end
 
   # jump
-  def exec(j1, << 0 :: size(3), address :: size(13) >> = _cmd),
-    do: %{j1 | pc: address}
+  # def exec(j1, << 0 :: size(3), address :: size(13) >> = _cmd),
+  #   do: %{j1 | pc: address}
+  def exec(j1, << 0 :: size(3), address :: size(13) >> = _cmd) do
+    address_hex = Integer.to_string(address, 16)
+    Logger.debug ">>>>>> jump #{address_hex}"
+    %{j1 | pc: address}
+  end
 
   # conditional jump
-  def exec(%{s: [0 | s_tail]} = j1, << 1 :: size(3), address :: size(13) >> = _cmd),
-    do: %{j1 | s: s_tail, pc: address}
-  def exec(%{s: [_ | s_tail]} = j1, << 1 :: size(3), _address :: size(13) >> = _cmd),
-    do: %{j1 | s: s_tail, pc: j1.pc + 1}
+  # def exec(%{s: [0 | s_tail]} = j1, << 1 :: size(3), address :: size(13) >> = _cmd),
+  #   do: %{j1 | s: s_tail, pc: address}
+  # def exec(%{s: [_ | s_tail]} = j1, << 1 :: size(3), _address :: size(13) >> = _cmd),
+  #   do: %{j1 | s: s_tail, pc: j1.pc + 1}
+  def exec(%{s: [0 | s_tail]} = j1, << 1 :: size(3), address :: size(13) >> = _cmd) do
+    address_hex = Integer.to_string(address, 16)
+    Logger.debug ">>>>>> conditional jump #{address_hex} // true"
+    %{j1 | s: s_tail, pc: address}
+  end
+  def exec(%{s: [_ | s_tail]} = j1, << 1 :: size(3), _address :: size(13) >> = _cmd) do
+    address_hex = Integer.to_string(j1.pc + 1, 16)
+    Logger.debug ">>>>>> conditional jump #{address_hex} // false"
+    %{j1 | s: s_tail, pc: j1.pc + 1}
+  end
 
   # call
-  def exec(j1, << 2 :: size(3), address :: size(13) >> = _cmd),
-    do: %{j1 | pc: address, rp: j1.rp + 1, r: [(j1.pc + 1)] ++ j1.r}
+  # def exec(j1, << 2 :: size(3), address :: size(13) >> = _cmd),
+  #   do: %{j1 | pc: address, rp: j1.rp + 1, r: [(j1.pc + 1)] ++ j1.r}
+  def exec(j1, << 2 :: size(3), address :: size(13) >> = _cmd) do
+    address_hex = Integer.to_string(address, 16)
+    Logger.debug ">>>>>> call #{address_hex}"
+    %{j1 | pc: address, rp: j1.rp + 1, r: [(j1.pc + 1)] ++ j1.r}
+  end
 
   # ALU
   def exec(j1, << 3 :: size(3), _word :: size(13) >> = cmd) do
@@ -54,14 +198,14 @@ defmodule J1 do
       [s_t] -> {s_t, nil}
       [s_t, s_n | _] -> {s_t, s_n}
     end
-    
+
     r_r = case r do
       [] -> nil
       r -> hd(r)
     end
     # Logger.debug "T=#{inspect s_t} N=#{inspect s_n} R=#{inspect r_r}"
 
-    << _ :: size(3), rpc :: size(1), code :: size(4), 
+    << _ :: size(3), rpc :: size(1), code :: size(4),
        tn :: size(1), tr :: size(1), nt :: size(1),
        _ :: size(1), rstackpm :: size(2), dstackpm :: size(2) >> = cmd
 
@@ -91,7 +235,7 @@ defmodule J1 do
       # sp++
       1 -> {[nil] ++ s, sp + 1}
       # sp--
-      2 -> {tl(s), sp - 1}
+      3 -> {tl(s), sp - 1}
       _else -> {s, sp}
     end
     # rstack ±
@@ -99,7 +243,7 @@ defmodule J1 do
       # rp++
       1 -> {[nil] ++ r, rp + 1}
       # rp--
-      2 -> {tl(r), rp - 1}
+      3 -> {tl(r), rp - 1}
       _else -> {r, rp}
     end
 
@@ -139,6 +283,57 @@ defmodule J1 do
     new_mem = case nt==1 do
       true -> hardware_write_mem(j1, s_t, s_n)
       false -> mem
+    end
+
+    # dstackpm==3 = -1
+    # dstackpm==1 = +1
+    cond do
+      code==0 and tn==1 and dstackpm==1 ->
+        Logger.debug ">>>>>> alu DUP"
+      code==1 and tn==1 and dstackpm==1 ->
+        Logger.debug ">>>>>> alu OVER"
+      code==6 ->
+        Logger.debug ">>>>>> alu INVERT"
+      code==2 and dstackpm==3 ->
+        Logger.debug ">>>>>> alu +"
+      code==1 and tn==1 ->
+        Logger.debug ">>>>>> alu SWAP"
+      code==0 and dstackpm==3 ->
+        Logger.debug ">>>>>> alu NIP"
+      code==1 and dstackpm==3 and nt==0 ->
+        Logger.debug ">>>>>> alu DROP"
+      code==0 and rpc==1 and rstackpm==3 ->
+        Logger.debug ">>>>>> alu ;"
+      code==1 and tr==1 and dstackpm==3 and rstackpm==1 ->
+        Logger.debug ">>>>>> alu >R"
+      code==11 and tr==1 and tn==1 and dstackpm==1 and rstackpm==3 ->
+        Logger.debug ">>>>>> alu R>"
+      code==11 and tr==1 and tn==1 and dstackpm==1 ->
+        Logger.debug ">>>>>> alu R@"
+      code==12 ->
+        Logger.debug ">>>>>> alu @"
+      code==1 and dstackpm==3 and nt==1 ->
+        Logger.debug ">>>>>> alu !"
+
+      true ->
+        case code do
+          0 -> Logger.debug ">>>>>> alu T"
+          1 -> Logger.debug ">>>>>> alu N"
+          2 -> Logger.debug ">>>>>> alu T + N"
+          3 -> Logger.debug ">>>>>> alu T and N"
+          4 -> Logger.debug ">>>>>> alu T or N"
+          5 -> Logger.debug ">>>>>> alu T xor N"
+          6 -> Logger.debug ">>>>>> alu ~T"
+          7 -> Logger.debug ">>>>>> alu N = T"
+          8 -> Logger.debug ">>>>>> alu N < T"
+          9 -> Logger.debug ">>>>>> alu N rshift T"
+         10 -> Logger.debug ">>>>>> alu T - 1"
+         11 -> Logger.debug ">>>>>> alu R"
+         12 -> Logger.debug ">>>>>> alu [T]"
+         13 -> Logger.debug ">>>>>> alu NlshiftT"
+         14 -> Logger.debug ">>>>>> alu depth"
+         15 -> Logger.debug ">>>>>> alu Nu<T"
+        end
     end
 
     %{j1 | pc: new_pc, mem: new_mem, s: new_s, r: new_r, sp: sp, rp: rp}

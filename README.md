@@ -19,6 +19,41 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/j1](https://hexdocs.pm/j1).
 
+# opcodes
+
+: T         h# 0000 ;
+: N         h# 0100 ;
+: T+N       h# 0200 ;
+: T&N       h# 0300 ;
+: T|N       h# 0400 ;
+: T^N       h# 0500 ;
+: ~T        h# 0600 ;
+: N==T      h# 0700 ;
+: N<T       h# 0800 ;
+: N>>T      h# 0900 ;
+: T-1       h# 0a00 ;
+: rT        h# 0b00 ;
+: [T]       h# 0c00 ;
+: N<<T      h# 0d00 ;
+: dsp       h# 0e00 ;
+: Nu<T      h# 0f00 ;
+
+: T->N      h# 0080 or ;
+: T->R      h# 0040 or ;
+: N->[T]    h# 0020 or ;
+: d-1       h# 0003 or ;    11
+: d+1       h# 0001 or ;    01
+: r-1       h# 000c or ;  1100
+: r-2       h# 0008 or ;  1000
+: r+1       h# 0004 or ;  0100
+
+: alu       h# 6000 or t, ;
+
+: return    T  h# 1000 or r-1 alu ;        return (alu command)
+: ubranch   2/ h# 0000 or t, ;             jmp
+: 0branch   2/ h# 2000 or t, ;             jz
+: scall     2/ h# 4000 or t, ;             call
+
 # Links
 
  http://excamera.com/sphinx/fpga-j1.html
@@ -71,4 +106,8 @@ https://www.gnu.org/software/gforth/
 
  http://astro.pas.rochester.edu/Forth/forth-words.html
 
- 
+ http://lars.nocrew.org/forth2012/core.html
+
+ http://lars.nocrew.org/forth2012/usage.html
+
+ http://lars.nocrew.org/forth2012/port.html

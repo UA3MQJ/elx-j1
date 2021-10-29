@@ -8,8 +8,18 @@ defmodule J1ProgTest do
 
   test "prog" do
 
+
+    j1 = make_j1_and_program()
+
+    j1 = J1.run(j1)
+    # Logger.debug "j1 = #{inspect j1}"
+    assert j1.state == :halted
+
+  end
+
+  def make_j1_and_program do
     # program write "0123456789" to console
-    j1 = J1.CPU.new
+    J1.CPU.new
     |> J1.write_mem( 0, J1.CMD.lit(48))
     |> J1.write_mem( 1, J1.CMD.lit(10000)) # write to cons
     |> J1.write_mem( 2, J1.CMD.to_addr())
@@ -23,11 +33,6 @@ defmodule J1ProgTest do
     |> J1.write_mem(10, J1.CMD.lit(10001)) # halt
     |> J1.write_mem(11, J1.CMD.to_addr())
     # |> J1.write_mem(10, J1.CMD.jmp(0))
-
-    j1 = J1.run(j1)
-    # Logger.debug "j1 = #{inspect j1}"
-    assert j1.state == :halted
-
   end
 
 end

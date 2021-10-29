@@ -2,12 +2,12 @@ defmodule J1.CMD do
   @moduledoc """
   J1 COMMAND makers
   """
-  
+
   def lit(value),    do: << 1 :: size(1), value :: size(15) >> |> bin_to_uint()
   def jmp(address),  do: << 0 :: size(1), 0 :: size(1), 0 :: size(1), address :: size(13) >> |> bin_to_uint()
   def jz(address),   do: << 0 :: size(1), 0 :: size(1), 1 :: size(1), address :: size(13) >> |> bin_to_uint()
   def call(address), do: << 0 :: size(1), 1 :: size(1), 0 :: size(1), address :: size(13) >> |> bin_to_uint()
-  
+
   # http://excamera.com/files/j1.pdf
   # Table iii -  Encoding of some Forth words.
   # ============================================================================
@@ -45,11 +45,11 @@ defmodule J1.CMD do
     tr  = if (tr),  do: 1, else: 0
     rpc = if (rpc), do: 1, else: 0
     nti = if (nti), do: 1, else: 0
-    ds  = if (ds == -1), do: 2, else: ds
-    rs  = if (rs == -1), do: 2, else: rs
+    ds  = if (ds == -1), do: 3, else: ds
+    rs  = if (rs == -1), do: 3, else: rs
 
-    bin = << 3 :: size(3), 
-       rpc :: size(1), op :: size(4), 
+    bin = << 3 :: size(3),
+       rpc :: size(1), op :: size(4),
        tn :: size(1), tr :: size(1), nti :: size(1),
        0 :: size(1), rs :: size(2), ds :: size(2) >>
 
